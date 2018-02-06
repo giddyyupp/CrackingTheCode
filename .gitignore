@@ -43,7 +43,8 @@ Thumbs.db
 *.xml
 *.mk
 *.bash
-*.inc/Caffe_Classification/classification.cpp
+*.inc
+/Caffe_Classification/classification.cpp
 /Caffe_Classification/classification.h
 /Caffe_Classification/Makefile
 /Caffe_Classification/nbproject/private/cpp_standard_headers_indexer.cpp
@@ -98,3 +99,16 @@ Thumbs.db
 /StackSam/nbproject/private/cpp_standard_headers_indexer.cpp
 /StackSam/nbproject/private/c_standard_headers_indexer.c
 /StackSam/nbproject/private/launcher.properties
+/Caffe_Classification/classification.cpp
+/Caffe_Classification/.dep.inc
+/caffe_test/.dep.inc
+/CrackingCodeSection1/.dep.inc
+/DoublyLinkedList/.dep.inc
+/GoogleDenemeler/.dep.inc
+/LinkedList/.dep.inc
+/MatlabRead/.dep.inc
+/MergeSort/.dep.inc
+/NemkaQual/.dep.inc
+/QueueSam/.dep.inc
+/SetofStackSam/.dep.inc
+/StackSam/.dep.inc
