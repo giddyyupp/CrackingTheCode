@@ -113,3 +113,10 @@ Thumbs.db
 /SetofStackSam/.dep.inc
 /StackSam/.dep.inc
 /QueueSam/dist/Debug/GNU-Linux/queuesam
+/TreeSam/build/
+/TreeSam/dist//BSTreeSam/nbproject/private/cpp_standard_headers_indexer.cpp
+/BSTreeSam/nbproject/private/c_standard_headers_indexer.c
+/BSTreeSam/nbproject/private/launcher.properties
+/TreeSam/nbproject/private/cpp_standard_headers_indexer.cpp
+/TreeSam/nbproject/private/c_standard_headers_indexer.c
+/TreeSam/nbproject/private/launcher.properties
