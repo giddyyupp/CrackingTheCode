@@ -2,6 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * 
+ * 3.5	 Implement a MyQueue class which implements a queue using two stacks.
  */
 
 #include "QueueSam.h"
@@ -30,14 +32,14 @@ template<typename T>
 T QueueSam<T>::deleteQ(){
     
     while(!(stack1->empty())){
-        stack2->push(stack1->top());
+        stack2->push(stack1->top()->value);
         stack1->pop();
     }
-    T ret = stack2->top();
+    T ret = stack2->top()->value;
     stack2->pop();
     
     while(!(stack2->empty())){
-        stack1->push(stack2->top());
+        stack1->push(stack2->top()->value);
         stack2->pop();
     }
     
@@ -48,14 +50,14 @@ template<typename T>
 void QueueSam<T>::printQ(){
     
     while(!(stack1->empty())){
-        stack2->push(stack1->top());
+        stack2->push(stack1->top()->value);
         stack1->pop();
     }
     
     stack2->print();
     
     while(!(stack2->empty())){
-        stack1->push(stack2->top());
+        stack1->push(stack2->top()->value);
         stack2->pop();
     }
 }

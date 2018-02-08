@@ -9,6 +9,9 @@
  * Author: sam
  *
  * Created on February 6, 2018, 10:00 PM
+ * 
+ * 
+ * 3.5	 Implement a MyQueue class which implements a queue using two stacks.
  */
 
 #ifndef QUEUESAM_H
