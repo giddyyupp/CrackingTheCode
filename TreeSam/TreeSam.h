@@ -26,7 +26,8 @@ template<typename T>
 struct Node{
     T value;
     Node* left;
-    Node* right;  
+    Node* right;
+    Node* parent;
 };
 
 template<typename T>
@@ -44,19 +45,14 @@ public:
     void postOrderTraverse(Node<T>* nodde);
     
     Node<T>* getRoot();
-
     
-private:
+protected:
     void insert_node(Node<T>* new_node);
     void delete_node(Node<T>* node_root, Node<T>* node, bool left_child);
-
-    
     Node<T>* root;
     //I need this shit, since delete is not working correctly!!
     Node<T>* root_root_ptr; // dummy ptr points to root. 
-
     int node_count;
-
 
 };
 

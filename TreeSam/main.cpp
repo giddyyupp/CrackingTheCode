@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     sam_tree.preOrderTraverse(sam_tree.getRoot());
     std::cout << std::endl;
 
-    sam_tree.deleteNode(90);
+    sam_tree.deleteNode(6);
     
     sam_tree.preOrderTraverse(sam_tree.getRoot());
     std::cout << std::endl;

@@ -98,7 +98,7 @@ bool TreeSam<T>::deleteNode(T val){
     Node<T>* temp;
     std::queue<Node<T>*> search_q;
     search_q.push(root);
-    bool found = 0; // 0 -> left, 1 -> right
+    bool found = 0; 
     
     while(!search_q.empty()){
         temp = search_q.front();
@@ -128,7 +128,6 @@ bool TreeSam<T>::deleteNode(T val){
         search_q.pop(); // if both child are full then pop this item.
     }
     
-          
     return found;
 }
 
@@ -145,11 +144,11 @@ void TreeSam<T>::delete_node(Node<T>* node_root, Node<T>* node, bool left_child)
         // obviously below should be ok, but it doesnt update correctly!!
         node = NULL;
         delete node;
-        
+
         if(left_child == 1)
-            node_root->left = NULL;
+            node_root->left = node;
         else
-            node_root->right = NULL;
+            node_root->right = node;
         
         return;
     }
@@ -160,9 +159,9 @@ void TreeSam<T>::delete_node(Node<T>* node_root, Node<T>* node, bool left_child)
         delete temp;
         
         if(left_child == 1)
-            node_root->left = NULL;
+            node_root->left = node;
         else
-            node_root->right = NULL;
+            node_root->right = node;
     }
     else if (node->right == NULL){
         // obviously below should be ok, but it doesnt update correctly!!
@@ -171,9 +170,9 @@ void TreeSam<T>::delete_node(Node<T>* node_root, Node<T>* node, bool left_child)
         delete temp;
         
         if(left_child == 1)
-            node_root->left = NULL;
+            node_root->left = node;
         else
-            node_root->right = NULL;
+            node_root->right = node;
     }
     else{
         // find successor

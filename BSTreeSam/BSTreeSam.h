@@ -16,6 +16,8 @@
 
 #include "../TreeSam/TreeSam.h"
 #include "../TreeSam/TreeSam.cpp"
+#include <algorithm>
+#include <math.h>
 
 
 template<typename T>
@@ -25,7 +27,20 @@ public:
     BSTreeSam();
     BSTreeSam(const BSTreeSam& orig);
     virtual ~BSTreeSam();
-private:
+    
+    void insertNode(T val);
+    bool deleteNode(T val);
+    
+    Node<T>* searchNode(T val);
+    Node<T>* findSuccessor(Node<T>* node);
+    
+    Node<T>* findCommonAncestor(T val1, T val2);
+    
+    bool isBalanced();
+
+protected:
+    void insert_node(Node<T>* new_node);
+    bool is_balanced(Node<T>* root, int* height);
 
 };
 
