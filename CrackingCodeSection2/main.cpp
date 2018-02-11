@@ -16,8 +16,12 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <queue>
+#include <map>
 
 
+
+/* part 5*/
 int mergeNumbers(int i, int j, int num1, int num2);
 void printBinary(std::string num);
 void printNextSmallestLargest(int num);
@@ -27,6 +31,14 @@ int findConvertBits(int num1, int num2);
 int findOnesInNumber(int res);
 int swapEvenOddBits(int num);
 
+/* part 6*/
+int nthFibo(int n);
+template<typename T>
+std::vector<T> findSubs(std::vector<T> set);
+int findkthPrimeFactor(int k);
+int findkthPrimeFactorBruteForce(int k);
+int findSmallestInQueues(std::queue<int> &q3, std::queue<int> &q5, std::queue<int> &q7);
+
 
 using namespace std;
 
@@ -35,7 +47,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    int num1 = 1024, num2 = 21;
+    /* part 5 tests*/
+    /*int num1 = 1024, num2 = 21;
     int i = 2, j = 6;
     
     std::cout << mergeNumbers(i, j, num1, num2) << std::endl;
@@ -52,7 +65,25 @@ int main(int argc, char** argv) {
     
     a = swapEvenOddBits(8);
     
-    std::cout << a <<std::endl;
+    std::cout << a <<std::endl;*/
+    
+    /* part 6 tests*/
+    
+//    int nn = nthFibo(8);
+//    std::cout << nn << std::endl;
+    
+//    std::vector<int> set{1,2,3};
+//    std::vector<int> res = findSubs(set);
+//    for(int i = 0; i < res.size(); i++){
+//        std::cout << res[i] << " ";
+//    }
+    
+    int asdadas =  findkthPrimeFactor(14);
+    std::cout << asdadas << std::endl;
+    
+    int asdf = findkthPrimeFactorBruteForce(14);
+    std::cout << asdf << std::endl;
+
     
     return 0;
 }
@@ -251,4 +282,143 @@ int findOnesInNumber(int res){
 int swapEvenOddBits(int num){
     
     return ( ((num & 0xaaaaaaaa) >> 1) | ((num & 0x55555555) << 1) );
+}
+
+
+/*
+ 8.1	 Write a method to generate the nth Fibonacci number.
+ */
+int nthFibo(int n){
+    
+    if (n <= 1)
+        return n;
+    else
+        return nthFibo(n-1) + nthFibo(n-2);
+}
+
+
+/*
+    8.3	 Write a method that returns all subsets of a set.
+ */
+template<typename T>
+std::vector<T> findSubs(std::vector<T> set){
+    
+    std::vector<T> res;
+    int max_subset = 1 << set.size(); // 2^n subset max
+    
+    for(int i = 0; i < max_subset ; i++){
+        int k = i ;
+        int index = 0;
+        while(k > 0){
+            if ((k & 1) > 0){
+                res.push_back(set[index]);
+            }
+            k = k >> 1;
+            index++;
+        }
+    }
+    
+    return res;
+}
+
+int findSmallestInQueues(std::queue<int> &q3, std::queue<int> &q5, std::queue<int> &q7){
+    
+    int min = 0;
+    int q_index = 1;
+    
+    if(q3.front() < q5.front() && q3.front() < q7.front()){
+        min = q3.front();
+        q_index = 3;
+    }
+    else if(q5.front() < q7.front() && q5.front() < q3.front()){
+        min = q5.front();
+        q_index = 5;
+    }
+    else{
+        min = q7.front();
+        q_index = 7;
+    }
+
+    
+    switch(q_index){
+        case 3:
+            q3.push(min * 3);
+            q5.push(min * 5);
+            q7.push(min * 7);
+            q3.pop();
+            break;
+        case 5:
+            q5.push(min * 5);
+            q7.push(min * 7);
+            q5.pop();
+            break;
+        case 7:
+            q7.push(min * 7);
+            q7.pop();
+            break;
+        default:
+            break;
+    }
+    
+    return min;
+}
+
+
+int findkthPrimeFactor(int k){
+    
+    int smallest = 0;
+    int counter = 1;
+    std::vector<int> nums;
+    std::queue<int> q3, q5, q7;
+    
+    q3.push(3); q5.push(5); q7.push(7); 
+    
+    nums.push_back(1);
+    
+    while(counter < k){
+        
+        smallest = findSmallestInQueues(q3,q5,q7);
+        nums.push_back(smallest);
+        
+        counter++;
+    }
+    
+    return smallest;
+}
+
+int findkthPrimeFactorBruteForce(int k){
+    
+    int counter = 0;
+    std::vector<int> nums;
+    std::map<int, int> m_sam;
+    int fr = 0;
+    int res = 0;
+    
+    nums.push_back(1);
+    
+    while (counter < 2 * k - 1){ // to be guarenteed
+        fr= nums[counter];
+        nums.push_back(fr*3); nums.push_back(fr*5); nums.push_back(fr*7);
+        counter++;
+    }
+    
+    std::pair<std::map<int,int>::iterator,bool> ret;
+    for(int i = 0; i < nums.size(); i++){
+        ret = m_sam.insert ( std::pair<int,int>(nums[i], nums[i]) );
+    }
+    counter = 0;
+    // showing contents:
+    std::map<int,int>::iterator it = m_sam.begin();
+    for (it=m_sam.begin(); it!=m_sam.end() ; ++it, counter++){
+        //std::cout << it->first << " => " << it->second << '\n';
+        if (counter == k-1){
+            res = it->first;
+            break;
+        }
+    }
+    
+    return res;
+    
+    
+    
 }
