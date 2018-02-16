@@ -49,16 +49,15 @@ void soru4_4(BSTreeSam<T> &tree_sam){
     std::queue<Node<T>*> search_q;
     int curr_count = 1, next_count = 0;
     std::vector<std::vector<int>> items; // vector or linked list!!
-    search_q.push(root);
     
-    // first print root!!1
-    std::queue<Node<T>*> tmp_q = search_q; //copy the original queue to the temporary queue
-    while (!tmp_q.empty()){
-        std::cout << tmp_q.front()->value << " - ";
-        tmp_q.pop();
-    } 
+    // push root
+    search_q.push(root); 
+    
+    // print root!
+    std::cout << search_q.front()->value << " - ";
     std::cout <<  std::endl;
-
+    
+    // now get all nodes!!
     while(!search_q.empty()){
         temp = search_q.front();
         if (temp->left != NULL){
@@ -122,10 +121,10 @@ int main(int argc, char** argv) {
 //    soru4_4(sam_bst);
     
     // soru 4.5:
-//    std::cout << sam_bst.findSuccessor(sam_bst.searchNode(3))->value << std::endl;
+    std::cout << sam_bst.findSuccessor(sam_bst.searchNode(3))->value << std::endl;
     
     // soru 4.6:
-    std::cout << sam_bst.findCommonAncestor(34, 4)->value << std::endl;
+//    std::cout << sam_bst.findCommonAncestor(34, 4)->value << std::endl;
 
         
 //    BSTreeSam<int> sam_bst_min;

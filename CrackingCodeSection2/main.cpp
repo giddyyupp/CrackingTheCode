@@ -31,10 +31,7 @@ int findConvertBits(int num1, int num2);
 int findOnesInNumber(int res);
 int swapEvenOddBits(int num);
 
-/* part 6*/
-int nthFibo(int n);
-template<typename T>
-std::vector<T> findSubs(std::vector<T> set);
+/* part 8*/
 int findkthPrimeFactor(int k);
 int findkthPrimeFactorBruteForce(int k);
 int findSmallestInQueues(std::queue<int> &q3, std::queue<int> &q5, std::queue<int> &q7);
@@ -45,7 +42,7 @@ using namespace std;
 /*
  * 
  */
-int main(int argc, char** argv) {
+int main1231(int argc, char** argv) {
 
     /* part 5 tests*/
     /*int num1 = 1024, num2 = 21;
@@ -67,16 +64,6 @@ int main(int argc, char** argv) {
     
     std::cout << a <<std::endl;*/
     
-    /* part 6 tests*/
-    
-//    int nn = nthFibo(8);
-//    std::cout << nn << std::endl;
-    
-//    std::vector<int> set{1,2,3};
-//    std::vector<int> res = findSubs(set);
-//    for(int i = 0; i < res.size(); i++){
-//        std::cout << res[i] << " ";
-//    }
     
     int asdadas =  findkthPrimeFactor(14);
     std::cout << asdadas << std::endl;
@@ -156,6 +143,11 @@ void printBinary(std::string num){
     }
     
 }
+
+/*
+ 5.3	 Given an integer, print the next smallest and next largest number that have the same
+     number of 1 bits in their binary representation.
+*/
 
 void printNextSmallestLargest(int num){
     
@@ -285,41 +277,7 @@ int swapEvenOddBits(int num){
 }
 
 
-/*
- 8.1	 Write a method to generate the nth Fibonacci number.
- */
-int nthFibo(int n){
-    
-    if (n <= 1)
-        return n;
-    else
-        return nthFibo(n-1) + nthFibo(n-2);
-}
 
-
-/*
-    8.3	 Write a method that returns all subsets of a set.
- */
-template<typename T>
-std::vector<T> findSubs(std::vector<T> set){
-    
-    std::vector<T> res;
-    int max_subset = 1 << set.size(); // 2^n subset max
-    
-    for(int i = 0; i < max_subset ; i++){
-        int k = i ;
-        int index = 0;
-        while(k > 0){
-            if ((k & 1) > 0){
-                res.push_back(set[index]);
-            }
-            k = k >> 1;
-            index++;
-        }
-    }
-    
-    return res;
-}
 
 int findSmallestInQueues(std::queue<int> &q3, std::queue<int> &q5, std::queue<int> &q7){
     

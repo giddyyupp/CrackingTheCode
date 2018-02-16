@@ -29,7 +29,7 @@ class LinkedList{
     
 public:
     LinkedList();
-    ~LinkedList();
+    virtual ~LinkedList();
     
     void insertTail(T elementVal);
     void insertHead(T elementVal);

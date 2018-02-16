@@ -31,7 +31,7 @@ int main21(int argc, char** argv) {
     // test
     LinkedList<int> samhi;
     samhi.insertTail(1);
-        samhi.insertTail(1);
+    samhi.insertTail(1);
 
     samhi.insertTail(2);
     samhi.insertTail(3);

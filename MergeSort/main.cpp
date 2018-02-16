@@ -38,8 +38,8 @@ int main(int argc, char** argv) {
         aux[i] = 0;
     
     // print original list list
-    for (int i = 0; i < 1024; i++)
-        std::cout << array[i] << " ";
+//    for (int i = 0; i < 1024; i++)
+//        std::cout << array[i] << " ";
     
     sort(array, aux, 0, 1023);
     
@@ -56,7 +56,7 @@ void sort(T* array, T* aux, int lo, int hi){
     if (hi <= lo)
         return;
     
-    int mid = lo + (hi - lo) / 2;
+    int mid = (hi + lo) / 2;
     
     sort(array, aux, lo, mid);
     sort(array, aux, mid+1, hi);
@@ -68,12 +68,12 @@ template<typename T>
 void merge(int lo, int mid, int hi, T* array, T* aux){
     
     int ii = lo, jj = mid+1, k = lo;
-//    memcpy(&aux[lo], &array[lo], hi-lo); // copy a to aux, duzelt
-    for (int i = lo; i <= hi; i++){
-        aux[i] = array[i];
-    }
+    memcpy(&aux[lo], &array[lo], sizeof(T)*(hi-lo+1)); // copy a to aux
+//    for (int i = lo; i <= hi; ++i){
+//        aux[i] = array[i];
+//    }
     
-    for (int k = lo; k <= hi; k++){
+    for (int k = lo; k <= hi; ++k){
         if (ii > mid) array[k] = aux[jj++]; // left array is over, copy from right
         else if (jj > hi) array[k] = aux[ii++]; // right array is over, copy from left
         else if (aux[jj] < aux[ii]) array[k] = aux[jj++];

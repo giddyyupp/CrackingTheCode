@@ -14,7 +14,7 @@ T findMax(T[]);
 template<typename T>
 T findMin(T a[]);
 
-int main(){
+int mainqweqeqeqeqeqeqew(){
     
     int aa[11] = {10,9,8,7,66,5,4,3,2,88,0};
     int max = findMax(aa);
@@ -44,7 +44,7 @@ T findMax(T a[]){
 template<typename T>
 T findMin(T a[]){
     
-    T min_elem = -1000000000000;
+    T min_elem = -10000000;
     int size_ = sizeof(a)/sizeof(a[0]);
 
     for (T i = 0; i < size_; i++){

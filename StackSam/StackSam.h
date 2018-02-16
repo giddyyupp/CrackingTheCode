@@ -20,7 +20,7 @@ template<typename T>
 class StackSam{
     public:
         StackSam();
-        ~StackSam();
+        virtual ~StackSam();
         
         void pop();
         void push(T val);

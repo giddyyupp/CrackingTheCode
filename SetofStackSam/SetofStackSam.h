@@ -25,6 +25,7 @@
 
 #ifndef SETOFSTACKSAM_H
 #define SETOFSTACKSAM_H
+
 #include <vector>
 
 #include "../StackSam/StackSam.h"
@@ -35,7 +36,7 @@ class SetofStackSam{
     
 public:
     SetofStackSam(int max_item_count);
-    ~SetofStackSam();
+    virtual ~SetofStackSam();
     
     void push(T val);
     void pop();

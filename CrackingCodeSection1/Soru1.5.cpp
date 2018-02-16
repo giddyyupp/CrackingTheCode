@@ -25,7 +25,7 @@ std::string replaceSpaceAmele(const std::string& str);
 /*
  * 
  */
-int main5(int argc, char** argv) {
+int main(int argc, char** argv) {
     // test 
     std::string str = "ola ola lalal land";
     std::string res = replaceSpaceAmele(str);

@@ -18,6 +18,7 @@
 #include <string>
 #include <map>
 #include <tuple>
+#include <algorithm>
 
 using namespace std;
 
@@ -46,6 +47,9 @@ bool isAnagram(const std::string& str1, const std::string& str2){
     
     bool isAna = true;
     std::map<char, int> ana_map;
+    
+//    std::string at = str1;
+//    std::sort(at.begin(), at.end());
     
     if (str1.length() != str2.length())
         return false;

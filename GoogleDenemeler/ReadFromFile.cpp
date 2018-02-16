@@ -27,7 +27,7 @@ int sumFromFile(std::string fileName){
         std::ifstream ifs(fileName.c_str());
         std::string line;
         while(getline(ifs, line))
-        sum+= atoi(line.c_str());
+            sum+= atoi(line.c_str());
         
     }
     catch(std::exception const & ex){

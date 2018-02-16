@@ -27,7 +27,7 @@ struct Node{
     T value;
     Node* left;
     Node* right;
-    Node* parent;
+    Node* parent; // for finding successor's
 };
 
 template<typename T>

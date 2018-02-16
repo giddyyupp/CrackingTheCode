@@ -26,7 +26,7 @@ class QueueSam{
     
 public:
     QueueSam();
-    ~QueueSam();
+    virtual ~QueueSam();
     void insertQ(T elem);
     T deleteQ();
     void printQ();

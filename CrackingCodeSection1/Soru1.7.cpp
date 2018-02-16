@@ -71,7 +71,7 @@ void clearZeroFromMatrix(int* matrix, int M, int N){
                 zero_indices.push_back(std::make_tuple(i , j));
         
         
-    // first pass mark 0 indices
+    // now clear zeros!!
     for (int i = 0; i < zero_indices.size(); i++){
         int row = std::get<0>(zero_indices[i]);
         int col = std::get<1>(zero_indices[i]);
