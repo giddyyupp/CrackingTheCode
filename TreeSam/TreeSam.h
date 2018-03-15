@@ -37,18 +37,18 @@ public:
     TreeSam(const TreeSam& orig);
     virtual ~TreeSam();
     
-    void insertNode(T val);
-    bool deleteNode(T val);
+    virtual void insertNode(T val);
+    virtual bool deleteNode(T val);
     
-    void inOrderTraverse(Node<T>* nodde);
-    void preOrderTraverse(Node<T>* nodde);
-    void postOrderTraverse(Node<T>* nodde);
+    virtual void inOrderTraverse(Node<T>* nodde);
+    virtual void preOrderTraverse(Node<T>* nodde);
+    virtual void postOrderTraverse(Node<T>* nodde);
     
-    Node<T>* getRoot();
+    virtual Node<T>* getRoot();
     
 protected:
-    void insert_node(Node<T>* new_node);
-    void delete_node(Node<T>* node_root, Node<T>* node, bool left_child);
+    virtual void insert_node(Node<T>* new_node);
+    virtual void delete_node(Node<T>* node_root, Node<T>* node, bool left_child);
     Node<T>* root;
     //I need this shit, since delete is not working correctly!!
     Node<T>* root_root_ptr; // dummy ptr points to root. 

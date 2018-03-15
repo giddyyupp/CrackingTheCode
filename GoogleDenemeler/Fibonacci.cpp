@@ -8,18 +8,28 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <queue>
 
 int findFibonacci(int n);
 int findFibonacciIter(int n);
 
+
 int main(){
     
     
-    for ( int i = 0; i < 11; i++ ) {
-        printf("%d, ", findFibonacciIter(i));
-    }
+//    for ( int i = 0; i < 11; i++ ) {
+//        printf("%d, ", findFibonacciIter(i));
+//    }
     //int aa = findFibonacci(9);
     //printf("%d", aa);
+    
+//    std::string line;
+//    
+//    while (std::getline(std::cin, line)){
+//        std::cout << line << std::endl;
+//    }
+    
+    //    std::priority_queue<int, std::vector<int>, std::greater<int> > pq;
     
     return 0;
 }
